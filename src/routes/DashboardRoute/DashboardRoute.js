@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 class DashboardRoute extends Component {
   render() {
     return (
       <section>
-        implement and style me
+        <h1>learn russian comrade!</h1>{" "}
       </section>
     );
   }
 }
 
-export default DashboardRoute
+export default DashboardRoute;

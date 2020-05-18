@@ -1,19 +1,41 @@
-div.App {
-  background-image: url("/images/christian-wiediger-1GvSPe52xx4-unsplash.jpg");
-  min-height: 100vh;
-  padding: 20px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  position: relative;
+nav#id,
+a#nav-link,
+a#header {
+  color: #222326;
 }
-.reg-wrapper {
-  position: absolute;
-  left: 25px;
-  top: 25px;
-  right: 25px;
-  bottom: 25px;
+span#user-name {
+  font-weight: 900;
+  text-transform: capitalize;
+}
+a#nav-link {
+  float: right;
+  vertical-align: center;
+}
+
+.nav {
+  background-color: #b8bcbf;
+  overflow: hidden;
+  position: inline-block;
+}
+
+/* Style the links inside the navigation bar */
+.nav a {
+  float: center;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.nav a:hover {
+  background-color: #733042;
+  color: #222326;
+}
+
+/* Add a color to the active/current link */
+.nav a.active {
+  background-color: #8c6164;
   color: white;
-  padding: 25px;
-  background-color: rgba(0, 0, 0, 0.5);
 }

@@ -1,28 +1,24 @@
-div.LoginRoute {
-  background-image: url("/images/christian-wiediger-1GvSPe52xx4-unsplash.jpg");
+div.Dashboard {
+  background-image: url("/images/aurelien-romain-zNrKAbRsF14-unsplash.jpg");
   min-height: 100vh;
   padding: 20px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   position: relative;
-  font-family: "Raleway", sans-serif;
+  color: #222326;
 }
-.login-wrapper {
+.Dashboard-wrapper {
   position: absolute;
   left: 25px;
   top: 25px;
   right: 25px;
   bottom: 25px;
-  color: white;
+  color: #222326;
   padding: 25px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
 }
-
-a {
-  color: beige;
-}
-
 header {
-  visibility: hidden;
+  visibility: visible;
+  font: #222326;
 }

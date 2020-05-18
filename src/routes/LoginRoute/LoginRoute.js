@@ -18,11 +18,13 @@ class LoginRoute extends Component {
 
   render() {
     return (
-      <div className="login-wrapper">
-        <section>
-          <h2>Login</h2>
-          <LoginForm onLoginSuccess={this.handleLoginSuccess} />
-        </section>
+      <div className="LoginRoute">
+        <div className="login-wrapper">
+          <section>
+            <h2>Login</h2>
+            <LoginForm onLoginSuccess={this.handleLoginSuccess} />
+          </section>
+        </div>
       </div>
     );
   }

@@ -1,3 +1,11 @@
+# Live App: https://spacedrep.now.sh/
+
+# Server: https://gentle-reef-38657.herokuapp.com
+
+# client repo: https://github.com/thinkful-ei-macaw/spaced-rep-client-dasha-javori.git
+
+# server repo: https://github.com/thinkful-ei-macaw/spaced-rep-server-dasha-javori
+
 # Spaced Repetition Capstone
 
 trello board: https://trello.com/b/aJDtPg5h/spaced-repetition-capston

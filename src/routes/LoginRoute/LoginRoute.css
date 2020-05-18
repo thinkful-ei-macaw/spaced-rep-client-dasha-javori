@@ -22,3 +22,7 @@ div.App {
 a {
   color: beige;
 }
+
+header {
+  visibility: hidden;
+}

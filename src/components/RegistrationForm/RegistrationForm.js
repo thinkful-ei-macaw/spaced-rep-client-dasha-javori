@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Input, Required, Label } from "../Form/Form";
 import AuthApiService from "../../services/auth-api-service";
 import Button from "../Button/Button";
+import "./RegistrationForm.css";
 
 class RegistrationForm extends Component {
   static defaultProps = {
@@ -39,7 +40,7 @@ class RegistrationForm extends Component {
   render() {
     const { error } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="registration-form" onSubmit={this.handleSubmit}>
         <div role="alert">{error && <p>{error}</p>}</div>
         <div>
           <Label htmlFor="registration-name-input">
@@ -74,7 +75,11 @@ class RegistrationForm extends Component {
         </div>
         <footer>
           <Button type="submit">Sign up</Button>{" "}
-          <Link to="/login">Already have an account?</Link>
+          <Link to="/login">
+            <button type="button" id="account">
+              Already have an account?
+            </button>
+          </Link>
         </footer>
       </form>
     );

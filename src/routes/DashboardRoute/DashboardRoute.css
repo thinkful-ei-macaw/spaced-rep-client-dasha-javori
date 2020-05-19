@@ -1,10 +1,9 @@
 div.Dashboard {
   background-image: url("/images/aurelien-romain-zNrKAbRsF14-unsplash.jpg");
   min-height: 100vh;
-  padding: 20px;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: 100%;
   position: relative;
   color: #222326;
 }

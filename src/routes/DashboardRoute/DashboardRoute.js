@@ -1,16 +1,32 @@
 import React, { Component } from "react";
 import "./DashboardRoute.css";
 import Header from "../../components/Header/Header";
+import UserLanguage from "../../components/UserLanguage";
+import languageService from "../../services/language-api-service";
 
 class DashboardRoute extends Component {
+  state = {
+    language: [],
+    words: [],
+  };
+
+  componentDidMount() {
+    languageService.getLanguage().then((data) => {
+      this.setState(data);
+    });
+  }
   render() {
+    console.log(this.state);
     return (
-      <div className="Dashboard">
+      <div className="DashboardRoute">
         <div className="Dashboard-wrapper">
           <section>
             <Header />
-            <h1>Let's learn Russian, comrade!</h1>{" "}
           </section>
+          <UserLanguage
+            language={this.state.language}
+            words={this.state.words}
+          />
         </div>
       </div>
     );

@@ -1,0 +1,28 @@
+.language {
+  background-image: url("/images/aurelien-romain-zNrKAbRsF14-unsplash.jpg");
+  min-height: 100vh;
+  padding: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: rgb(34, 35, 38);
+}
+.language-wrapper {
+  position: absolute;
+  left: 25px;
+  top: 25px;
+  right: 25px;
+  bottom: 25px;
+  color: #222326;
+  padding: 25px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+header {
+  visibility: visible;
+  font: #222326;
+}
+
+li {
+  list-style: none;
+}

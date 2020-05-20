@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import UserContext from "../contexts/UserContext";
 import "./UserLanguage.css";
 
-export default class UserLanguage extends React.Component {
+export default class UserLanguage extends Component {
   static contextType = UserContext;
 
   render() {
-    const { name, user_id, total_score } = this.props.language;
+    const { name, total_score } = this.props.language;
 
     const words = this.props.words;
     return (

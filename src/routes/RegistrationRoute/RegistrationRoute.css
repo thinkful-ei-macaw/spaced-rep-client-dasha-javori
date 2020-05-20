@@ -45,7 +45,7 @@ button {
 button:hover,
 button#info:hover,
 button#account:hover {
-  background-color: #a6948d;
+  background-color: #8c6164;
   cursor: pointer;
 }
 

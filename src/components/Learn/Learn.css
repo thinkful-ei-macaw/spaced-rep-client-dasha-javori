@@ -1,0 +1,36 @@
+.learn {
+  background-image: url("/images/aurelien-romain-zNrKAbRsF14-unsplash.jpg");
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  position: relative;
+  color: rgb(34, 35, 38);
+}
+
+form {
+  background-color: rgba(184, 188, 191, 0.5);
+  margin-left: 30px;
+  margin-right: 30px;
+  align-items: center;
+}
+
+label#input {
+  padding-top: 0px;
+  margin: 10px;
+  font-size: larger;
+}
+
+input#guess-input {
+  margin: 20px;
+  padding-left: 100px;
+}
+
+@media screen and (min-width: 900px) {
+  form {
+    background-color: rgba(184, 188, 191, 0.5);
+    margin-left: 300px;
+    margin-right: 300px;
+  }
+}

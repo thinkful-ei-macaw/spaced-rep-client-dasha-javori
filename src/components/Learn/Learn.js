@@ -1,8 +1,16 @@
 import React, { Component } from "react";
 import Header from "../Header/Header";
 import languageService from "../../services/language-api-service";
+import "./Learn.css";
 
 export class Learn extends Component {
+  componentDidMount() {
+    console.log("componentDidMount learn");
+    languageService.getWords().then((data) => {
+      this.setState(data);
+    });
+  }
+
   state = {
     nextWord: "",
     totalScore: 0,
@@ -30,7 +38,7 @@ export class Learn extends Component {
   };
 
   render() {
-    console.log(this.nextWord);
+    console.log(this.state);
 
     const {
       nextWord,
@@ -46,26 +54,23 @@ export class Learn extends Component {
           <h3>What does this mean:</h3>
           <span>{nextWord}</span>
           <p>Your total score is: {totalScore}</p>
-          <form
-            onSubmit={(e) => this.handleGuess(e)}
-            input="text"
-            id="guess-input"
-            name="guess-input"
-            required
-            onChange={this.setGuess}
-          >
-            <label htmlFor="learn-guess-input">
-              What's the translation for this word?
+          <form onSubmit={(e) => this.handleGuess(e)}>
+            <label htmlFor="learn-guess-input" id="input">
+              your answer:{" "}
             </label>
-
-            <button type="submit">Submit your answer</button>
+            <input
+              type="text"
+              id="guess-input"
+              name="guess-input"
+              required
+              onChange={this.setGuess}
+            ></input>
+            <button type="submit">Submit</button>
           </form>
         </section>
 
-        <p>You have answered this word correctly {wordCorrectCount} times.</p>
-        <p>
-          You have answered this word incorrectly {wordIncorrectCount} times.
-        </p>
+        <p>you got this word right {wordCorrectCount} times.</p>
+        <p>you got this word wrong {wordIncorrectCount} times.</p>
       </div>
     );
   }

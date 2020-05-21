@@ -5,10 +5,14 @@ import "./Learn.css";
 
 export class Learn extends Component {
   componentDidMount() {
-    console.log("componentDidMount learn");
     languageService.getWords().then((data) => {
       this.setState(data);
+      this.setState({ changeState: true });
     });
+  }
+
+  componentDidUpdate() {
+    this.setState({ changeState: false });
   }
 
   state = {
@@ -19,6 +23,9 @@ export class Learn extends Component {
     guess: "",
     answered: false,
     response: null,
+    feedback: "",
+    translation: "",
+    changeState: false,
   };
 
   setGuess = (e) => {
@@ -29,7 +36,7 @@ export class Learn extends Component {
 
   handleGuess = (e) => {
     e.preventDefault();
-    return languageService.guessWord(this.state.guess).then((res) => {
+    return languageService.getGuess(this.state.guess).then((res) => {
       this.setState({
         response: res,
         answered: true,
@@ -37,16 +44,31 @@ export class Learn extends Component {
     });
   };
 
-  render() {
-    console.log(this.state);
+  setFeedback = (e) => {
+    e.preventDefault();
+    return languageService.getGuess(this.state.guess).then((res) => {
+      if (res.isCorrect) {
+        this.setState({
+          response: res,
+          feedback: "You got it right!",
+        });
+      } else
+        this.setState({
+          response: res,
+          feedback: `You got it wrong! :( the right answer is '${res.answer}'`,
+        });
+    });
+  };
 
+  render() {
     const {
       nextWord,
       totalScore,
       wordCorrectCount,
       wordIncorrectCount,
+      feedback,
     } = this.state;
-
+    console.log(this.state);
     return (
       <div className="learn">
         <Header />
@@ -54,7 +76,9 @@ export class Learn extends Component {
           <h3>What does this mean:</h3>
           <span>{nextWord}</span>
           <p>Your total score is: {totalScore}</p>
-          <form onSubmit={(e) => this.handleGuess(e)}>
+          <form
+            onSubmit={((e) => this.handleGuess(e), (e) => this.setFeedback(e))}
+          >
             <label htmlFor="learn-guess-input" id="input">
               your answer:{" "}
             </label>
@@ -68,7 +92,7 @@ export class Learn extends Component {
             <button type="submit">Submit</button>
           </form>
         </section>
-
+        <h4>{feedback}</h4> <button type="button">try another word</button>
         <p>you got this word right {wordCorrectCount} times.</p>
         <p>you got this word wrong {wordIncorrectCount} times.</p>
       </div>

@@ -10,10 +10,13 @@ export class Learn extends Component {
       this.setState({ changeState: true });
     });
   }
-
-  componentDidUpdate() {
-    this.setState({ changeState: false });
-  }
+  //had to comment it out because it reloads constantly on login
+  // componentDidUpdate() {
+  //   languageService.getWords().then((data) => {
+  //     this.setState(data);
+  //     this.setState({ changeState: false });
+  //   });
+  // }
 
   state = {
     nextWord: "",
@@ -28,6 +31,10 @@ export class Learn extends Component {
     changeState: false,
   };
 
+  // clearInput = () => {
+  //   document.getElementById("guess-input").reset();
+  // };
+
   setGuess = (e) => {
     this.setState({
       guess: e.target.value,
@@ -36,14 +43,19 @@ export class Learn extends Component {
 
   handleGuess = (e) => {
     e.preventDefault();
-    return languageService.getGuess(this.state.guess).then((res) => {
-      this.setState({
-        response: res,
-        answered: true,
+    return languageService
+      .getGuess(this.state.guess)
+      .then((res) => {
+        this.setState({
+          response: res,
+          answered: true,
+        });
+        e.target["space-form"].reset();
+      })
+      .catch((err) => {
+        console.log("got err: ", e);
       });
-    });
   };
-
   setFeedback = (e) => {
     e.preventDefault();
     return languageService.getGuess(this.state.guess).then((res) => {
@@ -51,11 +63,19 @@ export class Learn extends Component {
         this.setState({
           response: res,
           feedback: "You got it right!",
+          totalScore: res.totalScore,
+          nextWord: res.nextWord,
+          wordCorrectCount: res.wordCorrectCount,
+          wordIncorrectCount: res.wordIncorrectCount,
         });
       } else
         this.setState({
           response: res,
           feedback: `You got it wrong! :( the right answer is '${res.answer}'`,
+          totalScore: res.totalScore,
+          nextWord: res.nextWord,
+          wordCorrectCount: res.wordCorrectCount,
+          wordIncorrectCount: res.wordIncorrectCount,
         });
     });
   };
@@ -68,7 +88,6 @@ export class Learn extends Component {
       wordIncorrectCount,
       feedback,
     } = this.state;
-    console.log(this.state);
     return (
       <div className="learn">
         <Header />
@@ -77,6 +96,8 @@ export class Learn extends Component {
           <span>{nextWord}</span>
           <p>Your total score is: {totalScore}</p>
           <form
+            id="space-form"
+            name="space-form"
             onSubmit={((e) => this.handleGuess(e), (e) => this.setFeedback(e))}
           >
             <label htmlFor="learn-guess-input" id="input">
@@ -88,11 +109,15 @@ export class Learn extends Component {
               name="guess-input"
               required
               onChange={this.setGuess}
-            ></input>
+            />
+            <br />
+            <button type="reset" id="reset" defaultValue="Reset">
+              clear
+            </button>
             <button type="submit">Submit</button>
           </form>
         </section>
-        <h4>{feedback}</h4> <button type="button">try another word</button>
+        <h4>{feedback}</h4>
         <p>you got this word right {wordCorrectCount} times.</p>
         <p>you got this word wrong {wordIncorrectCount} times.</p>
       </div>

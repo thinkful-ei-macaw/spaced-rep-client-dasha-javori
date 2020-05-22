@@ -27,10 +27,42 @@ input#guess-input {
   padding-left: 100px;
 }
 
+input#reset {
+  padding: 0.5rem 2.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: black;
+  border-radius: remy(35px);
+  margin: 5px;
+}
+input#reset:hover {
+  background-color: #8c6164;
+  cursor: pointer;
+}
+
 @media screen and (min-width: 900px) {
   form {
     background-color: rgba(184, 188, 191, 0.5);
     margin-left: 300px;
     margin-right: 300px;
+  }
+
+  form {
+    align-items: center;
+  }
+
+  button#reset {
+    padding: 0.5rem 2.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: black;
+    border-radius: remy(35px);
+    margin: 5px;
+  }
+  button#reset:hover {
+    background-color: #8c6164;
+    cursor: pointer;
   }
 }

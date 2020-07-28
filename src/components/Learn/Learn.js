@@ -50,7 +50,7 @@ export class Learn extends Component {
           response: res,
           answered: true,
         });
-        e.target["space-form"].reset();
+        e.target["guess-input"].value = "";
       })
       .catch((err) => {
         console.log("got err: ", e);

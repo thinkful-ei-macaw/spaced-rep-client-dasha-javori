@@ -24,6 +24,9 @@ class RegistrationRoute extends Component {
               technique.
             </p>
             <h2>Sign up</h2>
+            <p>For demo, log in with:</p>
+            <p>Username: testuser</p>
+            <p>Password: Password123#</p>
             <RegistrationForm
               onRegistrationSuccess={this.handleRegistrationSuccess}
             />

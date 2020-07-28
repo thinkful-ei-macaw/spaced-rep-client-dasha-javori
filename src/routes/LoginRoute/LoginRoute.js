@@ -22,6 +22,9 @@ class LoginRoute extends Component {
         <div className="login-wrapper">
           <section>
             <h2>Login</h2>
+            <p>For demo, log in with:</p>
+            <p>Username: testuser</p>
+            <p>Password: Password123#</p>
             <LoginForm onLoginSuccess={this.handleLoginSuccess} />
           </section>
         </div>
